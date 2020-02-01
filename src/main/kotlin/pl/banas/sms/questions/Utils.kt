@@ -1,6 +1,5 @@
 package pl.banas.sms.questions
 
-import io.vertx.core.Vertx
 import kotlin.concurrent.thread
 
 fun addShutdownHook(name: String, block: () -> Unit) =

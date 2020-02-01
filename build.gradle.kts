@@ -1,17 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val verKotlin = "1.3.41"
-val verVertx = "3.6.3"
-
-val verJunitJupiter = "5.4.1"
-val verJunit_4 = "4.12"
-val verJunitVintage = "5.4.1"
-
-val verMockito = "2.25.1"
-val verMockitoKotlin = "1.6.0"
-val verWiremock = "2.22.0"
-val verJackson = "2.9.8"
-
 buildscript {
     val verSonar = "2.7.1"
     repositories {
@@ -59,27 +47,22 @@ java {
 }
 
 dependencies {
-    compile("io.vertx:vertx-core:$verVertx")
-    compile("io.vertx:vertx-web:$verVertx")
-
-    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$verKotlin")
-    compile("org.jetbrains.kotlin:kotlin-stdlib:$verKotlin")
-    compile("org.jetbrains.kotlin:kotlin-reflect:$verKotlin")
-
-    compile("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:$verJackson")
-    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$verJackson")
-    compile("com.fasterxml.jackson.dataformat:jackson-dataformat-properties:$verJackson")
-    compile("com.fasterxml.jackson.module:jackson-module-kotlin:$verJackson")
-
-    testCompile("io.vertx:vertx-unit:$verVertx")
-    testCompile("io.vertx:vertx-codegen:$verVertx")
-    testCompile("org.junit.jupiter:junit-jupiter-api:$verJunitJupiter")
-    testCompile("junit:junit:$verJunit_4")
-    testCompile("org.mockito:mockito-core:$verMockito")
-    testCompile("com.nhaarman:mockito-kotlin:$verMockitoKotlin")
-    testCompile("com.github.tomakehurst:wiremock:$verWiremock")
-    testRuntime("org.junit.jupiter:junit-jupiter-engine:$verJunitJupiter")
-    testRuntime("org.junit.vintage:junit-vintage-engine:$verJunitVintage")
+    compile("io.vertx:vertx-core:3.6.3")
+    compile("io.vertx:vertx-web:3.6.3")
+    compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.41")
+    compile("org.jetbrains.kotlin:kotlin-stdlib:1.3.41")
+    compile("org.jetbrains.kotlin:kotlin-reflect:1.3.41")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.8")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8")
+    compile("com.fasterxml.jackson.dataformat:jackson-dataformat-properties:2.9.8")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
+    testCompile("io.vertx:vertx-unit:3.6.3")
+    testCompile("io.vertx:vertx-codegen:3.6.3")
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.4.1")
+    testCompile("org.mockito:mockito-core:2.25.1")
+    testCompile("com.nhaarman:mockito-kotlin:1.6.0")
+    testCompile("com.github.tomakehurst:wiremock:2.22.0")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.1")
 }
 
 tasks.withType<Test> {
