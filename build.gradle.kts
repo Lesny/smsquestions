@@ -37,8 +37,8 @@ version = "0.1"
 application {
     mainClassName = "pl.banas.sms.questions.Main"
     applicationDefaultJvmArgs = listOf(
-        "-Dvertx.logger-delegate-factory-class-name=io.vertx.core.logging.Log4j2LogDelegateFactory",
-        "-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector"
+            "-Dvertx.logger-delegate-factory-class-name=io.vertx.core.logging.Log4j2LogDelegateFactory",
+            "-DLog4jContextSelector=org.apache.logging.log4j.core.async.AsyncLoggerContextSelector"
     )
 }
 
@@ -49,6 +49,8 @@ java {
 dependencies {
     compile("io.vertx:vertx-core:3.6.3")
     compile("io.vertx:vertx-web:3.6.3")
+    compile("io.vertx:vertx-lang-kotlin-coroutines:3.6.3")
+    compile("io.vertx:vertx-lang-kotlin:3.6.3")
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.41")
     compile("org.jetbrains.kotlin:kotlin-stdlib:1.3.41")
     compile("org.jetbrains.kotlin:kotlin-reflect:1.3.41")
@@ -56,6 +58,10 @@ dependencies {
     compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.8")
     compile("com.fasterxml.jackson.dataformat:jackson-dataformat-properties:2.9.8")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
+
+    compile("com.rethinkdb:rethinkdb-driver:2.3.3")
+    compile("org.asynchttpclient:async-http-client:2.10.4")
+
     testCompile("io.vertx:vertx-unit:3.6.3")
     testCompile("io.vertx:vertx-codegen:3.6.3")
     testCompile("org.junit.jupiter:junit-jupiter-api:5.4.1")
@@ -69,6 +75,7 @@ tasks.withType<Test> {
     if (System.getProperty("skipTests") == null || System.getProperty("skipTests") == "false") {
         useJUnitPlatform {
             includeEngines = setOf("junit-jupiter")
+            excludeTags("integration")
         }
 
         filter {

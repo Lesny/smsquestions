@@ -1,9 +1,20 @@
 package pl.banas.sms.questions
 
 import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonValue
 import java.time.Instant
+
+data class PhoneNumbers(@JsonProperty("count") val count: Int,
+                        @JsonProperty("numbers") val numbers: List<PhoneNumber>)
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+data class PhoneNumber(@JsonProperty("country") val country: String,
+                       @JsonProperty("msisdn") val id: String,
+                       @JsonProperty("type") val type: String,
+                       @JsonProperty("moHttpUrl") val whbhookUrl: String?,
+                       @JsonProperty("features") val features: List<String>)
 
 enum class SmsType(@get:JsonValue val value: String) {
     ASCI("text"),
